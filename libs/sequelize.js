@@ -1,5 +1,6 @@
 const { Sequelize } = require("sequelize");
 const { config } = require("../config");
+const setupModels = require('../db/models');
 
 const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
@@ -22,5 +23,7 @@ if (isProd) {
 }
 
 const sequelize = new Sequelize(URI, options);
+
+setupModels(sequelize);
 
 module.exports = sequelize;
