@@ -32,7 +32,7 @@ class Vehicle extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      tableName: VECHICLES_TABLE,
+      tableName: VEHICLES_TABLE,
       modelName: "Vehicle",
       timestamps: false,
     };
