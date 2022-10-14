@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = config.port;
 const routerApi = require("./routes");
+const cors = require("cors");
 
 const {
   logErrors,
@@ -12,6 +13,8 @@ const {
 } = require("./middlewares/errorHandler");
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/", async (req, res) => {
   res.send("Mutants Api");
