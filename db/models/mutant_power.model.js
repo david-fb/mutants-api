@@ -20,7 +20,7 @@ const MutantPowerSchema = {
       key: "id",
     },
     onUpdate: "CASCADE",
-    onDelte: "CASCADE",
+    onDelete: "CASCADE",
   },
   powerId: {
     field: "power_id",
@@ -31,9 +31,17 @@ const MutantPowerSchema = {
       key: "id",
     },
     onUpdate: "CASCADE",
-    onDelte: "CASCADE",
+    onDelete: "CASCADE",
   },
 };
+
+const UniquesFields = {
+  uniqueKeys:  {
+    mutantId_powerId: {
+      fields: ['mutant_id', 'power_id']
+    }
+  }
+}
 
 class MutantPower extends Model {
   static associate(models) {}
@@ -48,4 +56,4 @@ class MutantPower extends Model {
   }
 }
 
-module.exports = { MUTANT_POWER_TABLE, MutantPowerSchema, MutantPower };
+module.exports = { MUTANT_POWER_TABLE, MutantPowerSchema, MutantPower, UniquesFields };

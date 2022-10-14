@@ -7,6 +7,7 @@ const { MutantSchema, MUTANTS_TABLE } = require("../models/mutant.model");
 const {
   MutantPowerSchema,
   MUTANT_POWER_TABLE,
+  UniquesFields
 } = require("../models/mutant_power.model");
 
 /** @type {import('sequelize-cli').Migration} */
@@ -16,7 +17,7 @@ module.exports = {
     await queryInterface.createTable(VEHICLES_TABLE, VehicleSchema);
     await queryInterface.createTable(POWERS_TABLE, PowerSchema);
     await queryInterface.createTable(MUTANTS_TABLE, MutantSchema);
-    await queryInterface.createTable(MUTANT_POWER_TABLE, MutantPowerSchema);
+    await queryInterface.createTable(MUTANT_POWER_TABLE, MutantPowerSchema, UniquesFields);
   },
 
   async down(queryInterface, Sequelize) {
