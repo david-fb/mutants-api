@@ -53,6 +53,19 @@ router.patch(
 );
 
 router.get(
+  "/search",
+  validatorHandler(getMutantSchema, "query"),
+  async (req, res, next) => {
+    try {
+      const response = await service.findByAny(req.query);
+      res.status(200).json(response);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.get(
   "/:id",
   validatorHandler(getMutantByIdSchema, "params"),
   async (req, res, next) => {
@@ -62,19 +75,6 @@ router.get(
       res.status(200).json(mutant);
     } catch (error) {
       console.log("entra");
-      next(error);
-    }
-  }
-);
-
-router.get(
-  "/search",
-  validatorHandler(getMutantSchema, "query"),
-  async (req, res, next) => {
-    try {
-      const response = await service.findByAny(req.query);
-      res.status(200).json(response);
-    } catch (error) {
       next(error);
     }
   }
