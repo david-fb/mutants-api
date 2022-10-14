@@ -25,7 +25,7 @@ const MutantSchema = {
   },
   condition: {
     allowNull: false,
-    type: DataTypes.ENUM("freedom", "arrested ", "unknown"),
+    type: DataTypes.ENUM("freedom", "arrested", "unknown"),
   },
   image: {
     allowNull: false,
