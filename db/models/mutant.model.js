@@ -21,11 +21,11 @@ const MutantSchema = {
   },
   type: {
     allowNull: false,
-    type: DataTypes.ENUM("Heroe", "Villano"),
+    type: DataTypes.ENUM("hero", "villain"),
   },
   condition: {
     allowNull: false,
-    type: DataTypes.ENUM("Libertad", "Detenido", "Desconocido"),
+    type: DataTypes.ENUM("freedom", "arrested ", "unknown"),
   },
   image: {
     allowNull: false,
@@ -43,7 +43,7 @@ const MutantSchema = {
     onDelete: "SET NULL",
   },
   placeId: {
-    allowNull: true,
+    allowNull: false,
     type: DataTypes.INTEGER,
     field: "place_id",
     references: {
