@@ -23,7 +23,7 @@ const PowerSchema = {
 
 class Power extends Model {
   static associate(models) {
-    this.belongsToMany(models.Power, {
+    this.belongsToMany(models.Mutant, {
         as: "mutants",
         through: models.MutantPower,
         foreignKey: "powerId",

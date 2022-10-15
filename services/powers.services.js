@@ -15,7 +15,9 @@ class PowersService {
   }
 
   async findOne(id) {
-    const power = await models.Power.findByPk(id);
+    const power = await models.Power.findByPk(id, {
+      include: ["mutants"],
+    });
     if (!power) throw boom.notFound("power not found");
     return power;
   }
