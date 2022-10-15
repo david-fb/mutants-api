@@ -6,9 +6,10 @@ const alias = Joi.string().min(1);
 const type = Joi.string().valid("hero", "villain");
 const condition = Joi.string().valid("freedom", "arrested", "unknown");
 const image = Joi.string().uri();
-const vehicle_id = Joi.number().integer();
+const vehicleId = Joi.number().integer();
 const placeId = Joi.number().integer();
 const powersId = Joi.array().items(Joi.number().integer()).unique();
+const powers = Joi.array().items(Joi.object());
 
 const createMutantSchema = Joi.object({
   name: name.required(),
@@ -16,7 +17,8 @@ const createMutantSchema = Joi.object({
   type: type.required(),
   condition: condition.required(),
   image: image.required(),
-  vehicle_id,
+  vehicleId,
+  powers,
   powersId,
   placeId: placeId.required(),
 });
@@ -27,7 +29,8 @@ const updateMutantSchema = Joi.object({
   type,
   condition,
   image,
-  vehicle_id,
+  vehicleId,
+  powers,
   placeId,
   powersId,
 });
